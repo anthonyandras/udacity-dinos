@@ -199,7 +199,7 @@ document.getElementById("btn").addEventListener("click", function() {
 
         // Generate Tiles for each Dino in Array
         // Add tiles to DOM
-        if(index == 5) {
+        if(index == 4) {
             organismGrid.appendChild(buildOrganismTile(human));
         }   
         organismGrid.appendChild(buildOrganismTile(organism));
