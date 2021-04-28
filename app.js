@@ -187,7 +187,9 @@ function buildOrganismTile(organism) {
   organismImage.src = organism.imageUrl;
 
   const fact = document.createElement('p');
-  if(organism.species.toLowerCase() !== 'human') {
+  if(organism.species.toLowerCase() === 'pigeon') {
+    fact.innerText = 'All birds are living dinosaurs.';
+  } else if(organism.species.toLowerCase() !== 'human') {
     fact.innerText = getRandomElement(organism.facts);
   }
   
