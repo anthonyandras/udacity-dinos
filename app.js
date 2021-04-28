@@ -172,6 +172,26 @@ function calculateHeightInInches(feet, inches) {
     return (feet * 12) + inches;
 }
 
+function buildOrganismTile(organism) {
+    const organismDiv = document.createElement("div");
+    organismDiv.className = "grid-item";
+
+    const speciesHeader = document.createElement("h3");
+    speciesHeader.innerText = organism.species;
+
+    const organismImage = document.createElement("img");
+    organismImage.src = organism.imageUrl;
+
+    const fact = document.createElement("p");
+    fact.innerText = getRandomElement(organism.facts);
+
+    organismDiv.appendChild(speciesHeader);
+    organismDiv.appendChild(organismImage);
+    organismDiv.appendChild(fact);
+
+    return organismDiv;
+}
+
 // we need to add an event listener to the button
 // On button click, prepare and display infographic
 document.getElementById("btn").addEventListener("click", function() {
@@ -185,8 +205,6 @@ document.getElementById("btn").addEventListener("click", function() {
         let diet = document.getElementById("diet").value;
         return new Human(name, weightLbs, height, diet, "", "", buildOrganismFacts("")); // we could capture where and when in a future iteration
     }());
-
-    console.log(human);
 
     let organismGrid = document.getElementById("grid");
     organisms.forEach((organism, index) => {
@@ -205,23 +223,3 @@ document.getElementById("btn").addEventListener("click", function() {
         organismGrid.appendChild(buildOrganismTile(organism));
     });
 });
-  
-function buildOrganismTile(organism) {
-    let organismDiv = document.createElement("div");
-    organismDiv.className = "grid-item";
-
-    let speciesHeader = document.createElement("h3");
-    speciesHeader.innerText = organism.species;
-
-    let organismImage = document.createElement("img");
-    organismImage.src = organism.imageUrl;
-
-    let fact = document.createElement("p");
-    fact.innerText = getRandomElement(organism.facts);
-
-    organismDiv.appendChild(speciesHeader);
-    organismDiv.appendChild(organismImage);
-    organismDiv.appendChild(fact);
-
-    return organismDiv;
-}
