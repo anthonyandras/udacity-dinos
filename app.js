@@ -177,8 +177,8 @@ function buildOrganismTile(organism) {
   organismDiv.className = 'grid-item';
 
   const speciesHeader = document.createElement('h3');
-  if(organism.species.toLowerCase() === 'human') {
-    speciesHeader.innerText = organism.name;  
+  if (organism.species.toLowerCase() === 'human') {
+    speciesHeader.innerText = organism.name;
   } else {
     speciesHeader.innerText = organism.species;
   }
@@ -187,12 +187,11 @@ function buildOrganismTile(organism) {
   organismImage.src = organism.imageUrl;
 
   const fact = document.createElement('p');
-  if(organism.species.toLowerCase() === 'pigeon') {
+  if (organism.species.toLowerCase() === 'pigeon') {
     fact.innerText = 'All birds are living dinosaurs.';
-  } else if(organism.species.toLowerCase() !== 'human') {
+  } else if (organism.species.toLowerCase() !== 'human') {
     fact.innerText = getRandomElement(organism.facts);
   }
-  
   organismDiv.appendChild(speciesHeader);
   organismDiv.appendChild(organismImage);
   organismDiv.appendChild(fact);
