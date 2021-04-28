@@ -177,14 +177,20 @@ function buildOrganismTile(organism) {
   organismDiv.className = 'grid-item';
 
   const speciesHeader = document.createElement('h3');
-  speciesHeader.innerText = organism.species;
+  if(organism.species.toLowerCase() === 'human') {
+    speciesHeader.innerText = organism.name;  
+  } else {
+    speciesHeader.innerText = organism.species;
+  }
 
   const organismImage = document.createElement('img');
   organismImage.src = organism.imageUrl;
 
   const fact = document.createElement('p');
-  fact.innerText = getRandomElement(organism.facts);
-
+  if(organism.species.toLowerCase() !== 'human') {
+    fact.innerText = getRandomElement(organism.facts);
+  }
+  
   organismDiv.appendChild(speciesHeader);
   organismDiv.appendChild(organismImage);
   organismDiv.appendChild(fact);
